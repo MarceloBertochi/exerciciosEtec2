@@ -13,7 +13,7 @@ namespace LuzDeAdvertencia
 
             Console.WriteLine("--- Luz De Advertência ---\n");
 
-            string 
+            string
             t, // Temperatura
             p, // Pressão
             r; // Rotação
@@ -25,17 +25,50 @@ namespace LuzDeAdvertencia
             Console.WriteLine("[A]tivado, [D]esativado");
 
             Console.Write("Sensor de temperatura...:");
-            t = Console.ReadLine().ToUpper()!;
+            t = Console.ReadLine().ToUpper().Trim().Substring(0,1)!;
+            if (t != "A" && t != "D")
+            {
+                Console.WriteLine("Situação inválida , digite A para Ativado ou D para desativado");
+                return;
+            }
 
             Console.Write("Sensor de Pressão.......:");
-            p = Console.ReadLine().ToUpper()!;
+            p = Console.ReadLine().ToUpper().Trim().Substring(0,1)!;
+            if (p != "A" && p != "D")
+            {
+                Console.WriteLine("Situação inválida , digite A para Ativado ou D para desativado");
+                return;
+            }            
 
             Console.Write("Sensor de Rotação...:");
-            r = Console.ReadLine().ToUpper()!;
-
+            r = Console.ReadLine().ToUpper().Trim().Substring(0,1)!;
+            if (r != "A" && r != "D")
+            {
+                Console.WriteLine("Situação inválida , digite A para Ativado ou D para desativado");
+                return;
+            }
             Console.WriteLine();
+            
 
-            if (t != "A" || t != "D" || p != "A" || p != "D" || r != "A" || r != "D")
+            if (t == "A" && (p == "A" || r == "D"))
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(" Luz de advertência ATIVADA");
+                Console.ResetColor();
+            }
+
+            else
+            {
+                Console.WriteLine("Luz de advertência DESATIVADA");
+            }
+        }
+    }
+}
+
+
+/*
+(t != "A" || t != "D" || p != "A" || )
+if (t != "A" || t != "D" || p != "A" || p != "D" || r != "A" || r != "D")
             {
                  Console.WriteLine("Digite Invalido\n");
             }
@@ -50,25 +83,4 @@ namespace LuzDeAdvertencia
             else if (t == "A" && r == "A")
             {
                 Console.WriteLine("Luz de advertência ATIVADA.\n");
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-            
-
-
-        }
-    }
-}
-
-
-//(t != "A" || t != "D" || p != "A" || )
+            */
