@@ -64,23 +64,3 @@ namespace LuzDeAdvertencia
         }
     }
 }
-
-
-/*
-(t != "A" || t != "D" || p != "A" || )
-if (t != "A" || t != "D" || p != "A" || p != "D" || r != "A" || r != "D")
-            {
-                 Console.WriteLine("Digite Invalido\n");
-            }
-            else if (t != "A" && p != "A" && r != "D")
-            {
-                Console.WriteLine("Luz de advertência DESATIVADO.\n");
-            }
-            else if (t == "A" && p == "A")
-            {
-                Console.WriteLine("Luz de advertência ATIVADA.\n");
-            }
-            else if (t == "A" && r == "A")
-            {
-                Console.WriteLine("Luz de advertência ATIVADA.\n");
-            */
