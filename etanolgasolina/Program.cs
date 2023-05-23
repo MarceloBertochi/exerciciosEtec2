@@ -17,6 +17,7 @@ namespace EtanolGasolina
             PularLinha();
 
             // NÃO CONSEGUI FAZER SOZINHO
+            Console.WriteLine("Não consegui fazer sozinho");
 
             Console.WriteLine("--- Etanol ou Gasolina? ---\n");
 
