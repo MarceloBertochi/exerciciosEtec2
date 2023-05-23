@@ -16,23 +16,44 @@ namespace EtanolGasolina
             ResetarCor();
             PularLinha();
 
-            Console.WriteLine("Exercício Alcool Ou Gasolina");
-            LinhaAmarela();
-            PularLinha();
+            // NÃO CONSEGUI FAZER SOZINHO
 
-            Console.WriteLine("--- Etanol ou Gasolina? ---");
-            PularLinha();
+            Console.WriteLine("--- Etanol ou Gasolina? ---\n");
 
-            Console.Write("Digite o preço do etanol (R$).......:");
-            Console.ReadLine();
-            Console.Write("Digite o preço da gosolina (R$).....:");
-            Console.ReadLine();
-            PularLinha();
+Console.Write("Digite o preço do etanol (R$).....: ");
+decimal etanol = Convert.ToDecimal(Console.ReadLine());
 
-            Console.WriteLine("O preço do etanol corresponde a ?? % do preço da gasolina.");
-            PularLinha();
+Console.Write("Digite o preço da gasolina (R$)...: ");
+decimal gasolina = Convert.ToDecimal(Console.ReadLine());
 
-            Console.WriteLine("Recomendação: Abasteça com ETANOL.");
+string recomendacao;
+
+if (AbastecerComGasolina(etanol, gasolina))
+{
+    recomendacao = "Gasolina";
+}
+else
+{
+    recomendacao = "Etanol";
+}
+
+double razao = RazaoEtanolGasolina(etanol, gasolina) * 100;
+
+Console.WriteLine($"\nO preço do etanol corresponde a {razao:N1}% do preço da gasolina.");
+Console.WriteLine($"\nRecomendação: Abasteça com {recomendacao.ToUpper()}.");
+
+double RazaoEtanolGasolina(decimal precoEtanol, decimal precoGasolina)
+{
+    return Convert.ToDouble(precoEtanol / precoGasolina);
+}
+
+bool AbastecerComGasolina(decimal precoEtanol, decimal precoGasolina)
+{
+    const double MinRazaoUsoGasolina = 0.73;
+    return RazaoEtanolGasolina(precoEtanol, precoGasolina) >= MinRazaoUsoGasolina;
+}
+
+            
         }
 
 
@@ -104,3 +125,4 @@ namespace EtanolGasolina
 
 
 }
+
