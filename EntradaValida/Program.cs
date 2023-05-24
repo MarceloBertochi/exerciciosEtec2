@@ -15,6 +15,7 @@ namespace EntradaValida
             PularLinha();
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
+            //fiz sozinho
             Console.WriteLine(" --- Exercicio Entrada Válida --- ");
             PularLinha();
             ResetarCor();
