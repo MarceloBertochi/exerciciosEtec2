@@ -9,18 +9,18 @@ namespace QuenteFrio
         static void Main(string[] args)
 
         {
-           LimparTela();
-           MinhaAssinatura();
-           PularLinha();
+            LimparTela();
+            MinhaAssinatura();
+            PularLinha();
 
-           Console.ForegroundColor = ConsoleColor.DarkRed;
-           Console.WriteLine(" -- Exercício Quente Frio -- ");
-           ResetarCor();
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine(" -- Exercício Quente Frio -- ");
+            ResetarCor();
 
 
-           // Gerar o número secreto
+            // Gerar o número secreto
             int palpite, senha = 100;
-            senha = RandomNumberGenerator.GetInt32(1,100);
+            senha = RandomNumberGenerator.GetInt32(1, 100);
             Console.WriteLine(senha);
 
             Console.WriteLine("A senha é XXX");
@@ -29,22 +29,14 @@ namespace QuenteFrio
             palpite = Convert.ToInt32(Console.ReadLine());
 
             bool certo = palpite == senha;
-           
-            do    
-            if (certo)
-            {
-                Console.WriteLine("Uhuuuuu você acertou a senha");
-            }
 
-            else
-            {
-                Console.WriteLine("voce errou , Tente mais uma vez");
-            }
 
-            while(certo);
+            
+
+
 
         }
-        static void MinhaAssinatura() 
+        static void MinhaAssinatura()
         {
             LinhaAmarela();
             BarraAmarelaInicio();
