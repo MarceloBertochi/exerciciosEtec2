@@ -30,7 +30,7 @@ namespace QuenteFrio
 
             bool certo = palpite == senha;
            
-                      
+            do    
             if (certo)
             {
                 Console.WriteLine("Uhuuuuu você acertou a senha");
@@ -40,6 +40,8 @@ namespace QuenteFrio
             {
                 Console.WriteLine("voce errou , Tente mais uma vez");
             }
+
+            while(certo);
 
         }
         static void MinhaAssinatura() 
