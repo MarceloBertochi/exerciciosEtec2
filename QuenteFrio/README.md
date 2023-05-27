@@ -11,3 +11,5 @@ está pelando caso tenha errado por três ou menos;
 está congelando caso tenha errado por 30 ou mais.
 está frio nos demais casos.
 Nos palpites congelando e frio indique se o número secreto é maior ou menor do que o palpite.
+
+
