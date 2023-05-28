@@ -18,38 +18,36 @@ namespace QuenteFrio
             ResetarCor();
 
 
-            // Gerar o número secreto
-            int palpite, diferenca, senha = 100;
-            senha = RandomNumberGenerator.GetInt32(1, 100);
-            Console.WriteLine(senha);
+            Console.WriteLine("Consegue advinhar um número entre 1 a 100?");
 
-            Console.WriteLine("A senha gerada é XXX");
-            Console.WriteLine("Você consegue adinhar qual é a senha gerada?");
-            Console.Write("Digite um número de 1 a 100, para darmos uma pista: ");
-            palpite = Convert.ToInt32(Console.ReadLine());
+            int // tipo de dado para a variáve, do tipo inteiro
+            palpite = 0, //declara variável palpite e inicializa com valor 0, esssa variável será usada para armazenar o palpite do jogador. 
+            
+            senha, // variável declarada para ser armazenada um número aleatório gerado pelo programa
 
-            diferenca = palpite - senha;
-            bool acertou = palpite == senha;
+            tentativa = 1; //variável declarada e dado o valor de 1, essa variável será usada para acompanhar o número de tentativas feitas pelo jogador. 
 
-            Console.WriteLine(Math.Abs(diferenca));
+            bool acertou = false; // variável do tipo boleana chamada acertou com valor false, essa variável será usada para verificar se o jogador acertou a senha. 
+
+            Console.Write($"Tente adivinhar a senha gerada -  {tentativa}a tentativa"); // mensagem solicitando para tentar adivinhar a senha gerada. 
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
 
             
 
-                if (diferenca == 0)
-                {
-                    Console.WriteLine("uhuuuu você acertou");
-                }
-
-                else if (diferenca <= 10)
-                {
-                    Console.WriteLine("O valor é menor ou igual a 10."); 
-                }
-
-                 else
-                { 
-                    Console.WriteLine("O valor é maior ou igual a 30");
-
-                }
+               
 
                 
             
