@@ -7,14 +7,18 @@ namespace ProgramaParaTeste
 
     {
         static void Main(string[] args)
-
         {
-            int x, y;
+         string nome = "Marcelo";
 
-            Console.Write("digite um número para ser somado..: ");
-            x = Int32.TryParse(Console.ReadLine()), out x;
+         int ComprimentoTexto = 10;
 
+         char preenchimentoTexto = '*';
 
+         Console.WriteLine($"{nome.PadRight(ComprimentoTexto, preenchimentoTexto )}");
+         
         }
+
+
     }
 }
+

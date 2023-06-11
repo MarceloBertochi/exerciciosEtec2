@@ -11,25 +11,70 @@ namespace QuenteFrio
         {
             LimparTela();
             MinhaAssinatura();
+            Console.WriteLine("EU CONSEGUI FAZER ATE A METADE MAS NAO FUNCIONOU O LOOPING, ENTÃO EU ACABEI COPIANDO O EXERCICIO, INFELIZMENTE.");
             PularLinha();
 
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine(" -- Exercício Quente Frio -- ");
-            ResetarCor();
+Console.WriteLine("--- Adivinha ---\n");
 
+Console.Write("Estou pensando em um número entre 1 e 100.");
+Thread.Sleep(500); Console.Write(".");
+Thread.Sleep(500); Console.Write(".");
+Thread.Sleep(500); Console.WriteLine(" Pronto! Agora, tente adivinhar.");
 
-            Console.WriteLine("Consegue advinhar um número entre 1 a 100?");
+int palpite = 0;
+int numeroSecreto = RandomNumberGenerator.GetInt32(1, 101);
+int tentativa = 1;
+bool acertou = false;
 
-            int // tipo de dado para a variáve, do tipo inteiro
-            palpite = 0, //declara variável palpite e inicializa com valor 0, esssa variável será usada para armazenar o palpite do jogador. 
-            
-            senha, // variável declarada para ser armazenada um número aleatório gerado pelo programa
+do
+{
+    Console.Write($"\nFaça seu palpite #{tentativa}? ");
 
-            tentativa = 1; //variável declarada e dado o valor de 1, essa variável será usada para acompanhar o número de tentativas feitas pelo jogador. 
+    if (!Int32.TryParse(Console.ReadLine(), out palpite) || palpite < 1 || palpite > 100)
+        continue;
 
-            bool acertou = false; // variável do tipo boleana chamada acertou com valor false, essa variável será usada para verificar se o jogador acertou a senha. 
+    int erro = palpite - numeroSecreto;
+    int distanciaErro = Math.Abs(erro);
 
-            Console.Write($"Tente adivinhar a senha gerada -  {tentativa}a tentativa"); // mensagem solicitando para tentar adivinhar a senha gerada. 
+    acertou = (palpite == numeroSecreto);
+
+    if (!acertou)
+    {
+        tentativa++;
+
+        if (distanciaErro <= 3)
+            ExibeColorido("Pelando!\n", ConsoleColor.DarkRed);
+        else if (distanciaErro <= 10)
+            ExibeColorido("Quente!\n", ConsoleColor.Red);
+        else
+        {
+            if (distanciaErro >= 30)
+                ExibeColorido("Congelando... ", ConsoleColor.DarkBlue);
+            else
+                ExibeColorido("Frio... ", ConsoleColor.Blue);
+
+            bool tentarMaisAlto = Math.Sign(erro) == -1;
+
+            Console.Write("tente um número mais ");
+            ExibeColorido(tentarMaisAlto ? "alto" : "baixo", tentarMaisAlto ? ConsoleColor.Green : ConsoleColor.Yellow);
+            Console.WriteLine(".");
+        }
+    }
+}
+while (tentativa <= 7 && !acertou);
+
+Console.Write("\nO número que escolhi era ");
+ExibeColorido(numeroSecreto.ToString(), ConsoleColor.Magenta);
+Console.WriteLine(".\n");
+
+ExibeColorido(acertou ? "Parabéns!" : "Tente novamente.", acertou ? ConsoleColor.Green : ConsoleColor.Yellow);
+
+void ExibeColorido(string texto, ConsoleColor cor)
+{
+    Console.ForegroundColor = cor;
+    Console.Write(texto);
+    Console.ResetColor();
+}
 
 
 
