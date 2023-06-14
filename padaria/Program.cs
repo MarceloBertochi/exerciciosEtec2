@@ -32,7 +32,9 @@ namespace Padaria
 
                 if (!double.TryParse(input, out grama))
                 {
+                    LimparTela();
                     Console.WriteLine("Entrada inválida, certifique-se de digitar um número válido");
+                    Console.Write("Peso desejado de pão italiano (em gramas)...: ");
 
                 }
 
