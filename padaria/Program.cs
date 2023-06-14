@@ -9,36 +9,54 @@ namespace Padaria
         static void Main(string[] args)
 
         {
-LimparTela();
-MinhaAssinatura();
-PularLinha();
+            LimparTela();
+            MinhaAssinatura();
+            PularLinha();
 
-double
-grama,
-farinha,
-agua,
-fermento,
-sal;
+            double
+            grama,
+            farinha,
+            agua,
+            fermento,
+            sal;
 
+            string input;
 
-Console.WriteLine("--- Padaria ---");
-Console.Write("Peso desejado de pão italiano (em gramas)...: ");
-grama = Convert.ToDouble(Console.ReadLine());
-LinhaAmarela();
+            Console.WriteLine("--- Padaria ---");
 
-Console.WriteLine("ingredientes :");
-Console.WriteLine($"Farinha {Convert.ToDecimal((farinha = grama)/(1+0.7+0.4+0.02))} gr");
-Console.WriteLine($"Água {Convert.ToDecimal( agua = (grama*70)/(1+0.7+0.4+0.02)/100)} gr");
-Console.WriteLine($"Fermento {fermento = (grama*40)/(1+0.7+0.4+0.02)/100} gr");
-Console.WriteLine($"Água {sal = (grama*2)/(1+0.7+0.4+0.02)/100} gr");
+            Console.Write("Peso desejado de pão italiano (em gramas)...: ");
 
+            do
+            {
+                input = Console.ReadLine();
 
+                if (!double.TryParse(input, out grama))
+                {
+                    Console.WriteLine("Entrada inválida, certifique-se de digitar um número válido");
 
+                }
 
+                else
+                {
+                    Console.WriteLine($"O valor digitado em gramas é {grama}, seu pão terá {grama/1000} Kg");
+                }
+
+            }
+            while (!double.TryParse(input, out grama));
+
+            PularLinha();
+
+            Console.WriteLine("ingredientes :");
+            Console.WriteLine($"Farinha {(farinha = grama) / (1 + 0.7 + 0.4 + 0.02):n0} Gr");
+            Console.WriteLine($"Água {agua = (grama * 70) / (1 + 0.7 + 0.4 + 0.02) / 100:n0} Ml");
+            Console.WriteLine($"Fermento {fermento = (grama * 40) / (1 + 0.7 + 0.4 + 0.02) / 100:n0} Gr");
+            Console.WriteLine($"Sal {sal = (grama * 2) / (1 + 0.7 + 0.4 + 0.02) / 100:n0} Gr");
+
+            PularLinha();
 
         }
-        
- static void MinhaAssinatura() 
+
+        static void MinhaAssinatura()
         {
             LinhaAmarela();
             BarraAmarelaInicio();
